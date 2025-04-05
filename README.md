@@ -50,10 +50,12 @@ The system architecture relies on <code>Java Spring</code>'s dependency injectio
 
 ---
 
-## Entity Diagram:
-
-![Model Diagram](https://github.com/souzafcharles/Spring-Boot-Financial-Investment-Aggregator/blob/main/image/financial-investment-aggregator-entities.png)
-
 ## Project Logic Layered Architecture:
 
 ![Layered Architecture](https://github.com/souzafcharles/Spring-Boot-Financial-Investment-Aggregator/blob/main/image/logic-layered-architecture.png)
+
+---
+
+## Entity Diagram:
+
+![Model Diagram](https://github.com/souzafcharles/Spring-Boot-Financial-Investment-Aggregator/blob/main/image/financial-investment-aggregator-entities.png)
