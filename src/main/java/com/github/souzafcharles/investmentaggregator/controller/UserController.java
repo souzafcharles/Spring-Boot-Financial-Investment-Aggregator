@@ -21,8 +21,7 @@ public class UserController {
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody CreateUserDTO dto) {
         var userId = service.createUser(dto);
-
-        return ResponseEntity.created(URI.create("/v1/users/" + userId.toString())).build();
+        return ResponseEntity.created(URI.create("/v1/user/" + userId.toString())).build();
     }
 
     @GetMapping("/{userId}")
@@ -38,7 +37,6 @@ public class UserController {
     @GetMapping
     public ResponseEntity<List<User>> listUsers() {
         var users = service.listUsers();
-
         return ResponseEntity.ok(users);
     }
 

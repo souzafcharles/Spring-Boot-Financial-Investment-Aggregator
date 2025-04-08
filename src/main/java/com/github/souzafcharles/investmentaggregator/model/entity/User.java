@@ -1,12 +1,12 @@
 package com.github.souzafcharles.investmentaggregator.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.Objects;
 import java.util.UUID;
 
 @Entity
@@ -14,7 +14,7 @@ import java.util.UUID;
 public class User implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID userId;
 
     @Column(name = "username")
@@ -27,9 +27,11 @@ public class User implements Serializable {
     private String password;
 
     @CreationTimestamp
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "UTC")
     private Instant creationTimestamp;
 
     @UpdateTimestamp
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "UTC")
     private Instant updateTimestamp;
 
     public User() {
@@ -90,17 +92,5 @@ public class User implements Serializable {
 
     public void setUpdateTimestamp(Instant updateTimestamp) {
         this.updateTimestamp = updateTimestamp;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return Objects.equals(username, user.username) && Objects.equals(email, user.email);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(username, email);
     }
 }

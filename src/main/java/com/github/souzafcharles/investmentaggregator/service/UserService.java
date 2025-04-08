@@ -19,13 +19,7 @@ public class UserService {
     private UserRepository repository;
 
     public UUID createUser(CreateUserDTO dto) {
-        var entity = new User(
-                UUID.randomUUID(),
-                dto.username(),
-                dto.email(),
-                dto.password(),
-                Instant.now(),
-                null);
+        var entity = new User(null, dto.username(), dto.email(), dto.password(), Instant.now(), null);
         var userSaved = repository.save(entity);
         return userSaved.getUserId();
     }
