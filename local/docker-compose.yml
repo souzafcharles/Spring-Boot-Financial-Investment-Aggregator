@@ -8,7 +8,7 @@ services:
     environment:
       - MYSQL_USER=springuser
       - MYSQL_PASSWORD=ThePassword
-      - MYSQL_DATABASE=db_aggregator
+      - MYSQL_DATABASE=aggregator_db
       - MYSQL_ROOT_PASSWORD=root
     volumes:
       - "./conf.d:/etc/mysql/conf.d:ro"
